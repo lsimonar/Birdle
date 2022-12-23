@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
 import './App.css';
-import Grid from './components/Grid/Grid';
 import Header from './components/Header/Header';
+import BirdsInput from './components/BirdsInput/BirdsInput';
 import Keyboard, { keys } from './components/Keyboard/Keyboard';
 import { useLocalStorage } from './utils/useLocalStorage';
 
@@ -81,13 +81,13 @@ function App() {
       document.removeEventListener('keydown', keyDownHandler);
     };
   }, [handleKeyPress]);
-  console.log(solutionWord)
+
   return (
     <div>
       { solutionWord &&
         <div className="App-ctn">
           <Header />
-          <Grid guessList={guessList} attemptNumber={attemptNumber} solutionWord={solutionWord}/>
+          <BirdsInput guess={guessList} setGuess={setGuessList} />
           { hasLost &&
             <h1>The word was {solutionWord}!</h1>
           }
