@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
 import './App.css';
 import Grid from './components/Grid/Grid';
+import Header from './components/Header/Header';
 import Keyboard, { keys } from './components/Keyboard/Keyboard';
 import { useLocalStorage } from './utils/useLocalStorage';
 
@@ -85,6 +86,7 @@ function App() {
     <div>
       { solutionWord &&
         <div className="App-ctn">
+          <Header />
           <Grid guessList={guessList} attemptNumber={attemptNumber} solutionWord={solutionWord}/>
           { hasLost &&
             <h1>The word was {solutionWord}!</h1>
